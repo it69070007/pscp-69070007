@@ -138,31 +138,31 @@ Step 3: แสดงข้อความออกมาโดยใช้ index
 ทำไมเลือก case นี้:
 
 ```text
-
+ตัวอักษรไม่ซ้ำกัน ง่ายต่อการตรวจสอบว่ากลับด้านข้อความได้ถูกต้อง
 ```
 
 Input:
 
 ```text
-
+abcde
 ```
 
 Expected output:
 
 ```text
-
+edcba
 ```
 
 Actual output:
 
 ```text
-
+edcba
 ```
 
 Result:
 
 ```text
-Pass / Not Pass
+Pass
 ```
 
 ### Test Case 2
