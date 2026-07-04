@@ -15,13 +15,13 @@
 หมายเลข/ชื่อโจทย์ OJ:
 
 ```text
-OJ2996 - สลับตัวอักษร
+OJ3011 - Colors
 ```
 
 OJ submission ID ถ้ามีการส่งแล้ว:
 
 ```text
-542210
+542786
 ```
 
 สถานะ OJ:
@@ -73,13 +73,14 @@ More than 4 weeks
 ถ้ายังไม่เข้าใจโจทย์ทั้งหมด ให้เขียนสิ่งที่เข้าใจในตอนนี้ ความเข้าใจอาจยังไม่ครบหรืออาจผิดได้ แต่ต้องพยายามอธิบายอย่างจริงใจ
 
 ```text
-โจทย์ให้แสดงผลตัวอักษรที่ถูกสลับที่แล้วจากหลังไปหน้า
-Input: 
-รับข้อความที่เป็นตัวอักษรภาษาอังกฤษยาว 5 ตัวอักษร
-Output: 
-ข้อความที่ถูกสลับที่แบบกลับด้านและเป็นตัวพิมพ์เล็กทุกตัวอักษร
-Constraints: 
-ต้องสลับที่แบบให้ตัวอักษรสุดท้ายเป็นตัวแรก
+โจทย์ให้รับแม่สี 2 ค่า นำแม่สีมาผสมกันแล้วบอกว่าได้สีอะไร
+Input:
+บรรทัดที่ 1 รับชื่อสีแรก
+บรรทัดที่ 2 รับชื่อสีถัดมา
+Output:
+ชื่อสีที่ได้จากการผสมแม่สี หรือ Error
+Constraints:
+ควรเขียนเงื่อนไขที่สีทั้ง 2 สี เป็นแม่สีที่มีสีเดียวกันด้วย
 ```
 
 ---
@@ -99,9 +100,20 @@ Constraints:
 สามารถเขียนเป็น pseudocode, flowchart idea หรือขั้นตอนความคิดได้
 
 ```text
-Step 1: รับข้อความ
-Step 2: เปลี่ยนให้ข้อความนั้นเป็นพิมพ์เล็กทั้งหมด
-Step 3: แสดงข้อความออกมาโดยใช้ index slicing ให้ start เป็น -1 และให้ step เป็น -1 เพื่อให้แสดงตัวอักษรสุดท้ายไล่มาจนถึงตัวแรก
+Step 1: รับค่าสีทั้ง 2
+Step 2: ตรวจว่าสีที่รับมาเป็นคู่สี (แดง-เหลือง) หรือไม่
+Step 3: ถ้าใช่ ให้พิมพ์ "Orange"
+Step 4: ถ้าไม่ ให้ตรวจว่าสีที่รับมาเป็นคู่สี (แดง-น้ำเงิน) หรือไม่
+Step 5: ถ้าใช่ ให้พิมพ์ "Violet"
+Step 6: ถ้าไม่ ให้ตรวจว่าสีที่รับมาเป็นคู่สี (เหลือง-น้ำเงิน) หรือไม่
+Step 7: ถ้าใช่ ให้พิมพ์ "Green"
+Step 8: ถ้าไม่ ให้ตรวจว่าสีที่รับมาเป็นสีแดงทั้งคู่หรือไม่
+Step 9: ถ้าใช่ ให้พิมพ์ "Red"
+Step 10: ถ้าไม่ ให้ตรวจว่าสีที่รับมาเป็นสีเหลืองทั้งคู่หรือไม่
+Step 11: ถ้าใช่ ให้พิมพ์ "Yellow"
+Step 12: ถ้าไม่ ให้ตรวจว่าสีที่รับมาเป็นสีน้ำเงินทั้งคู่หรือไม่
+Step 13: ถ้าใช่ ให้พิมพ์ "Blue"
+Step 12: ถ้าไม่ ให้พิมพ์ "Error" (เพราะนอกเหนือจากเงื่อนไขที่เขียนแสดงว่า input ที่รับมาเป็นสีอื่นที่ไม่ใช่แม่สี)
 ```
 
 ---
@@ -121,7 +133,7 @@ Step 3: แสดงข้อความออกมาโดยใช้ index
 ห้ามคัดลอกคำอธิบายจากคนอื่น
 
 ```text
-เหมือนกันกับแผนแรก แปลงข้อความเป็นพิมพ์เล็ก ใช้ index slicing ให้ start เป็น -1 และให้ step เป็น -1
+เหมือนกันกับแผนแรก นำสีที่รับมาตรวจสอบตามเงื่อนไขต่างๆที่เขียนไว้ แล้วแสดงชื่อสีที่ได้ หรือแสดงข้อความ Error
 ```
 
 ---
@@ -141,25 +153,26 @@ Step 3: แสดงข้อความออกมาโดยใช้ index
 ทำไมเลือก case นี้:
 
 ```text
-ตัวอักษรไม่ซ้ำกัน ง่ายต่อการตรวจสอบว่ากลับด้านข้อความได้ถูกต้อง
+เป็นคู่สีที่ทำให้ได้สีส้ม สลับตำแหน่งสีจาก testcases ที่โจทย์ให้มา
 ```
 
 Input:
 
 ```text
-abcde
+Yellow
+Red
 ```
 
 Expected output:
 
 ```text
-edcba
+Orange
 ```
 
 Actual output:
 
 ```text
-edcba
+Orange
 ```
 
 Result:
@@ -173,25 +186,26 @@ Pass
 ทำไมเลือก case นี้:
 
 ```text
-เป็นกรณีที่ input เป็นตัวอักษรพิมพ์ใหญ่ทั้งหมด
+ตรวจสอบกรณีที่สีที่รับมาไม่ใช่แม่สี
 ```
 
 Input:
 
 ```text
-LNWZA
+Red
+Pink
 ```
 
 Expected output:
 
 ```text
-azwnl
+Error
 ```
 
 Actual output:
 
 ```text
-azwnl
+Error
 ```
 
 Result:
@@ -205,25 +219,26 @@ Pass
 ทำไมเลือก case นี้:
 
 ```text
-เป็นกรณีที่ตัวอักษรผสมระหว่างพิมพ์เล็ก-ใหญ่
+ตรวจสอบกรณีที่สีที่รับมาเป็นแม่สี และเป็นสีเดียวกัน
 ```
 
 Input:
 
 ```text
-LnwZa
+Blue
+Blue
 ```
 
 Expected output:
 
 ```text
-azwnl
+Blue
 ```
 
 Actual output:
 
 ```text
-azwnl
+Blue
 ```
 
 Result:
@@ -311,10 +326,10 @@ No
 
 | Statement | Yes/No |
 |---|---|
-| I wrote this submission in my own words. | Yes |
-| I understand my final code. | Yes |
-| I recorded the real OJ status. | Yes |
-| I did not copy AI-generated text directly into this file. | Yes |
-| I did not copy code from another person. | Yes |
-| If I received human help, I disclosed it in this file. | Yes |
-| I submitted the final code to the OJ by myself. | Yes |
+| I wrote this submission in my own words. |Yes|
+| I understand my final code. |Yes|
+| I recorded the real OJ status. |Yes|
+| I did not copy AI-generated text directly into this file. |Yes|
+| I did not copy code from another person. |Yes|
+| If I received human help, I disclosed it in this file. |Yes|
+| I submitted the final code to the OJ by myself. |Yes|
