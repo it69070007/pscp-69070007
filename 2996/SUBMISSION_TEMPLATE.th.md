@@ -170,31 +170,31 @@ Pass
 ทำไมเลือก case นี้:
 
 ```text
-
+เป็นกรณีที่ input เป็นตัวอักษรพิมพ์ใหญ่ทั้งหมด
 ```
 
 Input:
 
 ```text
-
+LNWZA
 ```
 
 Expected output:
 
 ```text
-
+azwnl
 ```
 
 Actual output:
 
 ```text
-
+azwnl
 ```
 
 Result:
 
 ```text
-Pass / Not Pass
+Pass
 ```
 
 ### Test Case 3
@@ -202,31 +202,31 @@ Pass / Not Pass
 ทำไมเลือก case นี้:
 
 ```text
-
+เป็นกรณีที่ตัวอักษรผสมระหว่างพิมพ์เล็ก-ใหญ่
 ```
 
 Input:
 
 ```text
-
+LnwZa
 ```
 
 Expected output:
 
 ```text
-
+azwnl
 ```
 
 Actual output:
 
 ```text
-
+azwnl
 ```
 
 Result:
 
 ```text
-Pass / Not Pass
+Pass
 ```
 
 ---
