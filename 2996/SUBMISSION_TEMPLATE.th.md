@@ -308,7 +308,7 @@ No
 
 | Statement | Yes/No |
 |---|---|
-| I wrote this submission in my own words. | |
+| I wrote this submission in my own words. |Yes |
 | I understand my final code. | |
 | I recorded the real OJ status. | |
 | I did not copy AI-generated text directly into this file. | |
