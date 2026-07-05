@@ -73,7 +73,13 @@ More than 4 weeks
 ถ้ายังไม่เข้าใจโจทย์ทั้งหมด ให้เขียนสิ่งที่เข้าใจในตอนนี้ ความเข้าใจอาจยังไม่ครบหรืออาจผิดได้ แต่ต้องพยายามอธิบายอย่างจริงใจ
 
 ```text
-
+โจทย์ให้รับค่าอาหารและเครื่องดื่มที่ลูกค้าได้สั่งไป และให้คิดเป็นเงินรวมทั้งหมดจากการรวมค่าอาหารและเครื่องดื่ม + ค่าบริการ 10% จากค่าอาหารและเครื่องดื่ม + VAT 7%
+Input:
+รับเงินรวมค่าอาหารและเครื่องดื่มที่เป็นจำนวนเต็ม
+Output:
+จำนวนเงินรวมที่ลูกค้าต้องชำระหลังจากรวมค่าบริการและ VAT 7% แล้ว เป็นรูปแบบทศนิยม 2 ตำแหน่ง
+Constraints:
+มีการกำหนดขั้นต่ำของค่าบริการไว้ 50 บาท และไม่เกิน 1000 บาท ควรสร้างเงื่อนไขไว้เมื่อ 10% ของค่าอาหารและเครื่องดื่มไม่ถึง 50 บาท หรือเกิน 1000 บาท 
 ```
 
 ---
@@ -93,9 +99,16 @@ More than 4 weeks
 สามารถเขียนเป็น pseudocode, flowchart idea หรือขั้นตอนความคิดได้
 
 ```text
-Step 1:
-Step 2:
-Step 3:
+Step 1: รับเงินรวมค่าอาหารและเครื่องดื่ม
+Step 2: คิดค่าบริการ คิดเป็น 10% โดยนำค่าอาหารและเครื่องดื่มมาคูณ 0.1
+Step 3: ตรวจสอบว่าค่าบริการ < 50 หรือไม่
+Step 4: ถ้าใช่ กำหนดให้ค่าบริการ = 50
+Step 5: ถ้าไม่ ตรวจสอบว่าค่าบริการ > 1000 หรือไม่
+Step 6: ถ้าใช่ กำหนดให้ค่าบริการ = 1000
+Step 7: คิดราคารวม โดยนำเงินรวมค่าอาหารและเครื่องดื่ม + ค่าบริการ
+Step 8: คิดค่า VAT 7% โดยนำราคารวมมาคูณ 0.07
+Step 9: คิดค่าเงินที่ต้องชำระ นำราคารวมที่คิดไว้แล้วมาบวกเพิ่มกับค่า VAT 7%
+Step 10: แสดงค่าเงินที่ต้องชำระเป็นทศนิยม 2 ตำแหน่ง
 ```
 
 ---
@@ -115,7 +128,7 @@ Step 3:
 ห้ามคัดลอกคำอธิบายจากคนอื่น
 
 ```text
-
+เหมือนกันกับแผนแรก มีการคิดคำนวณค่าต่างๆตามที่โจทย์กำหนด และสร้างเงื่อนไขของค่าบริการไว้ให้อยู่ในช่วง 50-1000 เพื่อให้ได้ค่าตรงตามที่โจทย์กำหนด
 ```
 
 ---
@@ -135,31 +148,31 @@ Step 3:
 ทำไมเลือก case นี้:
 
 ```text
-
+เป็นกรณีที่ 10% ของ input อยู่ในช่วง 50-1000
 ```
 
 Input:
 
 ```text
-
+1000
 ```
 
 Expected output:
 
 ```text
-
+1177.00
 ```
 
 Actual output:
 
 ```text
-
+1177.00
 ```
 
 Result:
 
 ```text
-Pass / Not Pass
+Pass
 ```
 
 ### Test Case 2
@@ -167,31 +180,31 @@ Pass / Not Pass
 ทำไมเลือก case นี้:
 
 ```text
-
+เป็นกรณีที่ 10% ของ input < 50
 ```
 
 Input:
 
 ```text
-
+200
 ```
 
 Expected output:
 
 ```text
-
+267.50
 ```
 
 Actual output:
 
 ```text
-
+267.50
 ```
 
 Result:
 
 ```text
-Pass / Not Pass
+Pass
 ```
 
 ### Test Case 3
@@ -199,31 +212,31 @@ Pass / Not Pass
 ทำไมเลือก case นี้:
 
 ```text
-
+เป็นกรณีที่ 10% ของ input > 1000
 ```
 
 Input:
 
 ```text
-
+30000
 ```
 
 Expected output:
 
 ```text
-
+33170.00
 ```
 
 Actual output:
 
 ```text
-
+33170.00
 ```
 
 Result:
 
 ```text
-Pass / Not Pass
+Pass
 ```
 
 ---
@@ -233,7 +246,7 @@ Pass / Not Pass
 ใช้ AI กับโจทย์นี้หรือไม่
 
 ```text
-Yes / No
+No
 ```
 
 ถ้าใช้ AI ต้องทำไฟล์นี้ด้วย:
@@ -251,7 +264,7 @@ ai_reflection.md
 ได้ถามเพื่อน TA ผู้สอน หรือบุคคลอื่นเพื่อขอความช่วยเหลือในโจทย์นี้หรือไม่
 
 ```text
-Yes / No
+No
 ```
 
 ถ้าใช่ ให้อธิบายสั้น ๆ ว่าได้รับความช่วยเหลือแบบใด
@@ -276,19 +289,19 @@ Yes / No
 ใครช่วยคุณ
 
 ```text
-
+ไม่มีใคร
 ```
 
 เขาช่วยอะไร
 
 ```text
-
+ไม่ได้ใช้ความช่วยเหลือ
 ```
 
 คุณยังทำอะไรด้วยตนเอง
 
 ```text
-
+ทำทุกอย่างด้วยตัวเอง ทำความเข้าใจโจทย์ วางแผน เขียน ทดสอบ ปรับแก้ code ออกแบบ test cases ส่งเข้า OJ
 ```
 
 คุณคัดลอก code จากคนอื่นหรือไม่
@@ -305,10 +318,10 @@ No
 
 | Statement | Yes/No |
 |---|---|
-| I wrote this submission in my own words. | |
-| I understand my final code. | |
-| I recorded the real OJ status. | |
-| I did not copy AI-generated text directly into this file. | |
-| I did not copy code from another person. | |
-| If I received human help, I disclosed it in this file. | |
-| I submitted the final code to the OJ by myself. | |
+| I wrote this submission in my own words. |Yes|
+| I understand my final code. |Yes|
+| I recorded the real OJ status. |Yes|
+| I did not copy AI-generated text directly into this file. |Yes|
+| I did not copy code from another person. |Yes|
+| If I received human help, I disclosed it in this file. |Yes|
+| I submitted the final code to the OJ by myself. |Yes|
